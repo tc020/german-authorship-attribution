@@ -3,7 +3,7 @@ from nltk.book import *
 import nltk
 
 ################ Kapitel 1
-print("############################# Kapitel 1 #############################")
+print("############################# 1. Language Processing and Python #############################")
 
 text2.concordance("monstrous") #Auflistung des entsprechenden Suchwortes
 
