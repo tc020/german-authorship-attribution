@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from nltk.book import *
+import nltk
 
 ################ Kapitel 1
 print("-------------------------------------")
@@ -91,9 +92,15 @@ print("Frequenz:",fdist.freq(3)) #Wie hoch ist die Häufigkeitsfrequenz? In dem 
 
 print("################ Aufgabe 5") ################ Aufgabe 5
 
+#nltk.chat.chatbots()
 
 
-######### Vokabular
+
+######### Sprachwissenschaftliches Vokabular
+
+# Disambiguierung = Auflösung sprachlicher Mehrdeutigkeit; Ausdruck eindeutig machen; Synonym: vereindeutigen, monosemieren 
+# Beispiel: Ein Ausdruck wie „Die Bank ist groß“ ist ambig (mehrdeutig): „Bank“ kann hier als Möbel oder als Geldinstitut verstanden werden. Disambiguierung 
+# erfolgt dann, wenn der sprachliche Kontext nur noch eine Bedeutung für „Bank“ zulässt, z.B. in: „Ich setze mich auf die Bank“ oder „Ich hebe in der Bank Geld ab.“
 
 # Concordance/Konkordanz = Auflistung von Wörtern und in welchem Zusammenhang sie stehen "monströs" kann groß/schlimm aber auch liebevoll gemeint sein
 
@@ -116,4 +123,5 @@ print("################ Aufgabe 5") ################ Aufgabe 5
 # s.isalnum()	test if s is non-empty and all characters in s are alphanumeric
 # s.isdigit()	test if s is non-empty and all characters in s are digits
 # s.istitle()	test if s contains cased characters and is titlecased (i.e. all words in s have initial capitals)
-# len(set(word.lower() for word in text1 if word.isalpha()))     lowercases all the purely alphabetic items
+# len(set(word.lower() for word in text1 if word.isalpha()))    lowercases all the purely alphabetic items
+# set(w.lower() for w in text if w.isalpha())                   Um das Vokabular abzuleiten, wobei Groß- und Kleinschreibung nicht berücksichtigt werden
