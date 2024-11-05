@@ -6,7 +6,9 @@ nltk.download('punkt_tab')
 ################ Kapitel 2
 print("############################# 2. Accessing Text Corpora and Lexical Resources #############################")
 
-# Aufgabe 1
+# Aufgabe 1 Accessing Text Corpora
+
+# Aufgabe 1.1 Gutenberg Corpus
 
 print(nltk.corpus.gutenberg.fileids())
 
@@ -38,5 +40,41 @@ print(macbeth_sentences[1116]) #Zeige zB Satz-Nr. 1116 in der Liste
 longest_len = max(len(s) for s in macbeth_sentences)
 print("Längster Satz:",[s for s in macbeth_sentences if len(s) == longest_len]) #Finde den längsten Satz im Korpus
 
-# Aufgabe 1.2
+# Aufgabe 1.2 Web and Chat Text
 
+from nltk.corpus import webtext #Zugriff auf etwas unkonventionellere Texte 
+
+for fileid in webtext.fileids():
+    print(fileid, webtext.raw(fileid)[:65], '...') 
+
+from nltk.corpus import nps_chat #Zugriff auf Chat-Logs
+
+chatroom = nps_chat.posts('10-19-20s_706posts.xml')
+print(chatroom[123])
+
+# Aufgabe 1.3 Brown Corpus
+
+from nltk.corpus import brown #Zugriff auf den Brown Corpus (Erste große digitale Textsammlung aus 1961 von der Brown University) mit über 500 Quellen
+
+print(brown.categories())
+print(brown.words(categories='news'))
+print(brown.words(fileids=['cg22']))
+print(brown.sents(categories=['news', 'editorial', 'reviews']))
+
+print("Modalverben") #Beispiel: Untersuchung auf Modalverben
+news_text = brown.words(categories='news') 
+fdist = nltk.FreqDist(w.lower() for w in news_text)
+modals = ['can', 'could', 'may', 'might', 'must', 'will']
+for m in modals:
+    print(m + ':', fdist[m], end=' ') #end, damit die Auflistung in einer Zeile stattfindet. Sonst wäre es ein Modalverb pro Zeile
+print(" ") #Leeres print um einen Zeilenumbruch zu erzeugen, da sonst die nächste Ausgabe zerschossen wird.
+
+
+print("Modalverben je Genre") #Beispiel: Untersuchung der Modalverben pro Genre
+cfd = nltk.ConditionalFreqDist(
+    (genre, word)
+    for genre in brown.categories()
+    for word in brown.words(categories=genre))
+genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
+modals = ['can', 'could', 'may', 'might', 'must', 'will']
+print(cfd.tabulate(conditions=genres, samples=modals))
