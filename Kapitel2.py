@@ -78,3 +78,5 @@ cfd = nltk.ConditionalFreqDist(
 genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
 modals = ['can', 'could', 'may', 'might', 'must', 'will']
 print(cfd.tabulate(conditions=genres, samples=modals))
+
+# Aufgabe
