@@ -52,7 +52,7 @@ from nltk.corpus import nps_chat #Zugriff auf Chat-Logs
 chatroom = nps_chat.posts('10-19-20s_706posts.xml')
 print(chatroom[123])
 
-# Aufgabe 1.3 Brown Corpus
+# Aufgabe 1.3 Umgant mit dem Brown Corpus
 
 from nltk.corpus import brown #Zugriff auf den Brown Corpus (Erste große digitale Textsammlung aus 1961 von der Brown University) mit über 500 Quellen
 
@@ -79,4 +79,18 @@ genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
 modals = ['can', 'could', 'may', 'might', 'must', 'will']
 print(cfd.tabulate(conditions=genres, samples=modals))
 
-# Aufgabe
+# Aufgabe 1.4 Umgang mit dem Reuters Corpus
+
+#Reuters Corpus contains 10,788 news documents totaling 1.3 million words; classified into 90 topics; grouped in "training" and "test"
+from nltk.corpus import reuters #Zugriff auf den Reuters Corpus
+print("Files and ID:",reuters.fileids())
+print("Categeories:",reuters.categories())
+
+print("Categories of Trainings ID 9865:",reuters.categories('training/9865'))
+print("Categories of Trainings ID 9865 & 9880:",reuters.categories(['training/9865', 'training/9880']))
+print("Files contain 'barley':",reuters.fileids('barley'))
+print("Files contain 'barley & 'corn':",reuters.fileids(['barley', 'corn']))
+
+print("Reuter Words:",reuters.words('training/9865')[:14]) #Erst5en 14 Wörter. Die Wörter in Capslock sind der Titel
+
+# Aufgabe 1.5 Inaugural Address Corpus

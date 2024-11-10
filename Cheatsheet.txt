@@ -11,3 +11,66 @@ s.isdigit()	test if s is non-empty and all characters in s are digits
 s.istitle()	test if s contains cased characters and is titlecased (i.e. all words in s have initial capitals)
 len(set(word.lower() for word in text1 if word.isalpha()))    lowercases all the purely alphabetic items
 set(w.lower() for w in text if w.isalpha())                   Um das Vokabular abzuleiten, wobei Groß- und Kleinschreibung nicht berücksichtigt werden
+
+
+######### Untersuchungstechniken
+
+#Beispiel: Wortanalysen
+fdist1 = FreqDist(text1) #Frequency Distribution (Frequenzverteilung); Wie oft befindet sich jedes einzelne Wort in text1 (Moby Dick)
+print("fdist1:",fdist1) #Samples = Anzahl einzigartiger Wörter; Outcomes = Gesamtzahl aller Wörter, einschließlich Wiederholungen
+print("fdist1 most common:",fdist1.most_common(50)) #Zeige die häufigsten 50 wörter an; Keine Zahl zeigt alle Wörter an
+print("fsist1 'wahle':",fdist1['whale']) #Wie oft kommt STRING (zB wahle) im Text vor?
+
+fdist1.plot(50, cumulative=True) #Plotted die Häufigkeit der ersten n (in unserem bsp 50) Wörter
+plt.show()
+
+text4.dispersion_plot(["citizens", "democracy", "freedom", "duties", "America"]) #Stellt grafisch die Positionen im Text an denen die einzelnen Wörter vorkommen dar
+plt.show()
+
+print("hapaxes:",fdist1.hapaxes()) #Ermitteln von Hapax legomena (Einzahl: Hapax legomenon)
+
+V = set(text1) #V für Vocabular 
+long_words = [w for w in V if len(w) > 15] #Wörter mit mindestens einer Länge von 15 Buchstaben
+print("Long Words:",sorted(long_words))
+
+fdist5 = FreqDist(text5)
+print(sorted(w for w in set(text5) if len(w) > 7 and fdist5[w] > 7)) #Finde Wörter die mind. 7 Buchstaben lang sind und min. 7 mal im Text vorkommen
+
+#Beispiel: Wortlängen
+print("Länge:",[len(w) for w in text1]) #Länge der Wörter
+
+fdist = FreqDist(len(w) for w in text1) #FreqDist zählt die Häufigkeit wie oft welche längen vorkommen
+print(fdist)
+print("-----------")
+print("fdist most common:",fdist.most_common()) #Zeige die häufigsten wörter an
+print("Max:",fdist.max()) #Zeige mit welche Wortlänge am häufigsten vorkommt
+print("Wörter mit 3 Zeichen:",fdist[3]) #Wie oft kommt das Wort, welches vorher mit max ermittelt wurde im Text vor? Hier: Über 50.000 mal
+print("Frequenz:",fdist.freq(3)) #Wie hoch ist die Häufigkeitsfrequenz? In dem Fall 19,3 %
+
+#Beispiel: Untersuchung der Modalverben pro Genre
+print("Modalverben je Genre") 
+cfd = nltk.ConditionalFreqDist(
+    (genre, word)
+    for genre in brown.categories()
+    for word in brown.words(categories=genre))
+genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
+modals = ['can', 'could', 'may', 'might', 'must', 'will']
+print(cfd.tabulate(conditions=genres, samples=modals))
+
+#Beispiel: Durchschnittliche Wortlänge (sprachtypisch engl 3-4), Satzlänge und Textdiversität. Autorcharakteristische Ähnlichkeiten lassen sich feststellen
+for fileid in gutenberg.fileids(): 
+    num_chars = len(gutenberg.raw(fileid)) #raw gibt einfach nur den Text als einzelne Zeichen zurück in seiner "Rohform"
+    num_words = len(gutenberg.words(fileid)) #words extrahiert alle Wörter aus dem Corpus
+    num_sents = len(gutenberg.sents(fileid)) #sents extrahiert alle Sätze und speichert jeden Satz als Listeneintrag ab
+    num_vocab = len(set(w.lower() for w in gutenberg.words(fileid)))
+    print(round(num_chars/num_words), round(num_words/num_sents), round(num_words/num_vocab), fileid)
+
+
+#Beispiel: Analysieren von Sätzen
+macbeth_sentences = gutenberg.sents('shakespeare-macbeth.txt') #Die Funktion sents() unterteilt den Text in seine Sätze, wobei jeder Satz eine Liste von Wörtern ist
+
+print(macbeth_sentences)
+print(macbeth_sentences[1116]) #Zeige zB Satz-Nr. 1116 in der Liste
+longest_len = max(len(s) for s in macbeth_sentences)
+print("Längster Satz:",[s for s in macbeth_sentences if len(s) == longest_len]) #Finde den längsten Satz im Korpus
+
