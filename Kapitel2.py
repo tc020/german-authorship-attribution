@@ -121,3 +121,32 @@ cfd.plot()
 
 # Aufgabe 1.8 Text Corpus Structure
 
+
+# Aufgabe 1.9 Loading your own Corpus
+
+# PlaintextCorpusReader:
+# Wird verwendet, um einfache, unstrukturierte Textdateien zu lesen.
+# Eignet sich für normale Texte ohne syntaktische Annotationen, z.B. Romane oder Artikel.
+# Ermöglicht den Zugriff auf Wörter, Sätze oder rohen Text.
+
+# Beispiel:
+from nltk.corpus import PlaintextCorpusReader
+corpus_root = 'path/to/textfiles'  # Verzeichnis mit den Textdateien
+corpus = PlaintextCorpusReader(corpus_root, '.*\.txt')
+print(corpus.words())  # Gibt eine Liste aller Wörter im Korpus zurück
+
+
+# BracketParseCorpusReader:
+# Wird für geparste Korpora mit syntaktischer Baumstruktur in Klammernotation verwendet.
+# Die Klammernotation zeigt die hierarchische Struktur eines Satzes an (z.B. Subjekte, Prädikate, Objekte).
+# Geeignet für Korpora wie den Penn Treebank, die syntaktische Analysen in Klammernotation verwenden.
+
+# Beispiel:
+from nltk.corpus import BracketParseCorpusReader
+corpus_root = 'path/to/bracketed/files'  # Verzeichnis mit den geparsten Dateien
+corpus = BracketParseCorpusReader(corpus_root, '.*\.txt')
+print(corpus.parsed_sents())  # Gibt eine Liste von Syntaxbäumen zurück
+
+# Aufgabe 2 Conditional Frequency Distributions
+
+# Aufgabe 2.1 Conditions and Events
