@@ -109,3 +109,15 @@ cfd = nltk.ConditionalFreqDist(
     if w.lower().startswith(target))
 
 cfd.plot()
+
+# Aufgabe 1.7 Corpora in Other Languages
+
+#Encoding Beispiele
+# print(nltk.corpus.cess_esp.words())
+# print(nltk.corpus.floresta.words())
+# print(nltk.corpus.indian.words('hindi.pos'))
+# print(nltk.corpus.udhr.fileids())
+# print(nltk.corpus.udhr.words('Javanese-Latin1')[11:])
+
+# Aufgabe 1.8 Text Corpus Structure
+
