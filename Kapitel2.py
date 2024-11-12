@@ -95,11 +95,12 @@ print("Reuter Words:",reuters.words('training/9865')[:14]) #Erst5en 14 Wörter. 
 
 # Aufgabe 1.5 Inaugural Address Corpus
 
-from nltk.corpus import inaugural
+from nltk.corpus import inaugural #collection of 55 texts, one for each presidential address
 
-print(inaugural.fileids())
-print([fileid[:4] for fileid in inaugural.fileids()])
+print(inaugural.fileids()) #Zeige alle Files
+print([fileid[:4] for fileid in inaugural.fileids()]) #Zeige nur die Jahre
 
+#In welcher Frequenz kamen die Wörter "america" und "citizen" in den Reden vor?
 cfd = nltk.ConditionalFreqDist(
     (target, fileid[:4])
     for fileid in inaugural.fileids()

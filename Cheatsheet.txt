@@ -74,3 +74,19 @@ print(macbeth_sentences[1116]) #Zeige zB Satz-Nr. 1116 in der Liste
 longest_len = max(len(s) for s in macbeth_sentences)
 print("Längster Satz:",[s for s in macbeth_sentences if len(s) == longest_len]) #Finde den längsten Satz im Korpus
 
+
+#Beispiel: Wortfrequenzen in verschiedenen Texten
+from nltk.corpus import inaugural #collection of 55 texts, one for each presidential address
+
+print(inaugural.fileids()) #Zeige alle Files
+print([fileid[:4] for fileid in inaugural.fileids()]) #Zeige nur die Jahre
+
+#In welcher Frequenz kamen die Wörter "america" und "citizen" in den Reden vor?
+cfd = nltk.ConditionalFreqDist(
+    (target, fileid[:4])
+    for fileid in inaugural.fileids()
+    for w in inaugural.words(fileid)
+    for target in ['america', 'citizen']
+    if w.lower().startswith(target))
+
+cfd.plot()
