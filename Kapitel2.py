@@ -150,3 +150,4 @@ print(corpus.parsed_sents())  # Gibt eine Liste von Syntaxbäumen zurück
 # Aufgabe 2 Conditional Frequency Distributions
 
 # Aufgabe 2.1 Conditions and Events
+
