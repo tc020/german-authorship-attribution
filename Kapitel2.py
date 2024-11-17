@@ -156,7 +156,7 @@ print(corpus.parsed_sents())  # Gibt eine Liste von Syntaxbäumen zurück
 
 # Aufgabe 2.2 Countin Words by Genre
 
-print("AUFGABE 2.2")
+print("Aufgabe 2.2")
 
 from nltk.corpus import brown
 cfd = nltk.ConditionalFreqDist(
@@ -178,3 +178,17 @@ print("cfd[news]:",cfd['news'])
 print("cfd[romance]:",cfd['romance'])
 print("cfd['romance'].most_common(20):",cfd['romance'].most_common(20))
 print("cfd['romance']['could']:",cfd['romance']['could'])
+
+# Aufgabe 2.3 Plotting and Tabulating Distributions
+print("Aufgabe 2.3")
+
+from nltk.corpus import udhr
+languages = ['Chickasaw', 'English', 'German_Deutsch',
+     'Greenlandic_Inuktikut', 'Hungarian_Magyar', 'Ibibio_Efik']
+cfd = nltk.ConditionalFreqDist(
+           (lang, len(word)) [1]
+           for lang in languages
+           for word in udhr.words(lang + '-Latin1'))
+
+print(cfd.tabulate(conditions=['English', 'German_Deutsch'],
+              samples=range(10), cumulative=True))
