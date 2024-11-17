@@ -229,5 +229,7 @@ print("Fraction Reuters Words:",content_fraction(nltk.corpus.reuters.words())) #
 
 # Aufgabe 4.3 Comparative Wordlists
 
+#Kann genutzt werden um Übersetzer / Translator zu bauen
+
 # Aufgabe 4.4 Shoebox and Toolbox Lexicons
 
