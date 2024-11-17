@@ -2,13 +2,13 @@
 
 s.startswith(t)	    test if s starts with t
 s.endswith(t)	    test if s ends with t
-t in s	    test if t is a substring of s
-s.islower()	test if s contains cased characters and all are lowercase
-s.isupper()	test if s contains cased characters and all are uppercase
-s.isalpha()	test if s is non-empty and all characters in s are alphabetic
-s.isalnum()	test if s is non-empty and all characters in s are alphanumeric
-s.isdigit()	test if s is non-empty and all characters in s are digits
-s.istitle()	test if s contains cased characters and is titlecased (i.e. all words in s have initial capitals)
+t in s	            test if t is a substring of s
+s.islower()	        test if s contains cased characters and all are lowercase
+s.isupper()	        test if s contains cased characters and all are uppercase
+s.isalpha()	        test if s is non-empty and all characters in s are alphabetic
+s.isalnum()	        test if s is non-empty and all characters in s are alphanumeric
+s.isdigit()	        test if s is non-empty and all characters in s are digits
+s.istitle()	        test if s contains cased characters and is titlecased (i.e. all words in s have initial capitals)
 len(set(word.lower() for word in text1 if word.isalpha()))    lowercases all the purely alphabetic items
 set(w.lower() for w in text if w.isalpha())                   Um das Vokabular abzuleiten, wobei Groß- und Kleinschreibung nicht berücksichtigt werden
 
@@ -34,6 +34,16 @@ root	                    if the path to the root of locally installed corpus
 readme()	                the contents of the README file of the corpus
 more documentation can be found using help(nltk.corpus.reader) and by reading the online Corpus HOWTO at http://nltk.org/howto
 
+NLTK's Conditional Frequency Distributions: commonly-used methods and idioms for defining, accessing, and visualizing a conditional frequency distribution of counters.
+cfdist = ConditionalFreqDist(pairs)	    create a conditional frequency distribution from a list of pairs
+cfdist.conditions()	                    the conditions
+cfdist[condition]	                    the frequency distribution for this condition
+cfdist[condition][sample]	            frequency for the given sample for this condition
+cfdist.tabulate()	                    tabulate the conditional frequency distribution
+cfdist.tabulate(samples, conditions)    tabulation limited to the specified samples and conditions
+cfdist.plot()	                        graphical plot of the conditional frequency distribution
+cfdist.plot(samples, conditions)	    graphical plot limited to the specified samples and conditions
+cfdist1 < cfdist2	                    test if samples in cfdist1 occur less frequently than in cfdist2
 
 ######### Untersuchungstechniken
 

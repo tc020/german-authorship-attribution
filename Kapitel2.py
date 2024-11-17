@@ -186,9 +186,48 @@ from nltk.corpus import udhr
 languages = ['Chickasaw', 'English', 'German_Deutsch',
      'Greenlandic_Inuktikut', 'Hungarian_Magyar', 'Ibibio_Efik']
 cfd = nltk.ConditionalFreqDist(
-           (lang, len(word)) [1]
+           (lang, len(word))
            for lang in languages
            for word in udhr.words(lang + '-Latin1'))
 
-print(cfd.tabulate(conditions=['English', 'German_Deutsch'],
-              samples=range(10), cumulative=True))
+print(cfd.tabulate(samples=range(10), cumulative=True)) #Mit (conditions=['English', 'German_Deutsch'] würde es sich auf die zwei Conditions limitieren lassen
+#range is for words less than 10 characters long, last column says there are words with 9 or fewer letters
+
+# Aufgabe 2.4 Generating Random Text with Bigrams
+
+# Aufgabe 3 More Python: Reusing Code
+
+# Aufgabe 3.1-3.3 Python Grundlagen
+
+"""
+Gute Definition: Eine Sammlung von Variablen- und Funktionsdefinitionen in einer Datei wird als Python-**Modul** bezeichnet. Eine Sammlung von verwandten Modulen 
+wird als **Paket/Package** bezeichnet. Der Code von NLTK für die Verarbeitung des Brown Corpus ist ein Beispiel für ein Modul, und die Sammlung von Code für die Verarbeitung 
+aller verschiedenen Korpora ist ein Beispiel für ein Paket. NLTK selbst ist eine Sammlung von Paketen, manchmal auch **Bibliothek/Library** genannt.
+"""
+
+# Aufgabe 4 Lexical Resources
+
+# Aufgabe 4.1 Wordlist Corpora
+
+#Kann genutzt werden um z.B. Rechtschriebprüfung zu erstellen.
+#Oder Liste mit Stopp-Wörtern um diese aus normalen Texten herausfiltern zu können, bevor man sie weiterverarbeitet
+
+from nltk.corpus import stopwords
+print("Stopwords:",stopwords.words('english'))
+
+#Let's define a function to compute what fraction of words in a text are not in the stopwords list:
+
+def content_fraction(text):
+    stopwords = nltk.corpus.stopwords.words('english')
+    content = [w for w in text if w.lower() not in stopwords]
+    return len(content) / len(text)
+
+print("Fraction Reuters Words:",content_fraction(nltk.corpus.reuters.words())) #Über 25 % der des Textes wird dadurch gekürzt
+
+
+# Aufgabe 4.2 A Pronouncing Dictionary
+
+# Aufgabe 4.3 Comparative Wordlists
+
+# Aufgabe 4.4 Shoebox and Toolbox Lexicons
+
