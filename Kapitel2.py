@@ -237,3 +237,18 @@ print("Fraction Reuters Words:",content_fraction(nltk.corpus.reuters.words())) #
 
 # Aufgabe 5.1 Senses and Synonyms
 
+from nltk.corpus import wordnet as wn
+
+print(wn.synsets('motorcar')) #synsets = Synonym Set = Collection of synonymous words ("lemmas")
+print(wn.synset('car.n.01').lemma_names())
+print(wn.synset('car.n.01').definition())
+print(wn.synset('car.n.01').examples())
+
+print(wn.synset('car.n.01').lemmas()) #We can get all the lemmas for a given synset
+print( wn.lemma('car.n.01.automobile')) #look up a particular lemma
+print(wn.lemma('car.n.01.automobile').synset()) #get the synset corresponding to a lemma
+print(wn.lemma('car.n.01.automobile').name()) #and get the "name" of a lemma.
+
+print(wn.lemmas('car')) #we can access all the lemmas involving the word car
+
+# Aufgabe 5.2 The WorldNet Hierarchy
