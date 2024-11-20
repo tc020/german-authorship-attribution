@@ -233,6 +233,7 @@ print("Fraction Reuters Words:",content_fraction(nltk.corpus.reuters.words())) #
 
 # Aufgabe 4.4 Shoebox and Toolbox Lexicons
 
-# Aufgabe 5
+# Aufgabe 5 WordNet
 
 # Aufgabe 5.1 Senses and Synonyms
+
