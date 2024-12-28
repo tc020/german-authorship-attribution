@@ -83,6 +83,8 @@ print("Max:",fdist.max()) #Zeige mit welche Wortlänge am häufigsten vorkommt
 print("Wörter mit 3 Zeichen:",fdist[3]) #Wie oft kommt das Wort, welches vorher mit max ermittelt wurde im Text vor? Hier: Über 50.000 mal
 print("Frequenz:",fdist.freq(3)) #Wie hoch ist die Häufigkeitsfrequenz? In dem Fall 19,3 %
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #Beispiel: Untersuchung der Modalverben pro Genre
 print("Modalverben je Genre") 
 cfd = nltk.ConditionalFreqDist(
@@ -101,6 +103,7 @@ for fileid in gutenberg.fileids():
     num_vocab = len(set(w.lower() for w in gutenberg.words(fileid)))
     print(round(num_chars/num_words), round(num_words/num_sents), round(num_words/num_vocab), fileid)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Beispiel: Analysieren von Sätzen
 macbeth_sentences = gutenberg.sents('shakespeare-macbeth.txt') #Die Funktion sents() unterteilt den Text in seine Sätze, wobei jeder Satz eine Liste von Wörtern ist
@@ -110,6 +113,7 @@ print(macbeth_sentences[1116]) #Zeige zB Satz-Nr. 1116 in der Liste
 longest_len = max(len(s) for s in macbeth_sentences)
 print("Längster Satz:",[s for s in macbeth_sentences if len(s) == longest_len]) #Finde den längsten Satz im Korpus
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Beispiel: Wortfrequenzen in verschiedenen Texten
 from nltk.corpus import inaugural #collection of 55 texts, one for each presidential address
