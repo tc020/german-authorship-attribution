@@ -12,6 +12,8 @@ s.istitle()	        test if s contains cased characters and is titlecased (i.e. 
 len(set(word.lower() for word in text1 if word.isalpha()))    lowercases all the purely alphabetic items
 set(w.lower() for w in text if w.isalpha())                   Um das Vokabular abzuleiten, wobei Groß- und Kleinschreibung nicht berücksichtigt werden
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Basic Corpus Functionality defined in NLTK
 Example	                    Description
 fileids()	                the files of the corpus
@@ -33,6 +35,8 @@ open(fileid)	            open a stream for reading the given corpus file
 root	                    if the path to the root of locally installed corpus
 readme()	                the contents of the README file of the corpus
 more documentation can be found using help(nltk.corpus.reader) and by reading the online Corpus HOWTO at http://nltk.org/howto
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 NLTK's Conditional Frequency Distributions: commonly-used methods and idioms for defining, accessing, and visualizing a conditional frequency distribution of counters.
 cfdist = ConditionalFreqDist(pairs)	    create a conditional frequency distribution from a list of pairs
