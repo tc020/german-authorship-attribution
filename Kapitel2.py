@@ -288,3 +288,4 @@ print(right.path_similarity(orca))
 print(right.path_similarity(tortoise))
 print(right.path_similarity(novel))
 
+######################## KAPITEL ENDE ########################
