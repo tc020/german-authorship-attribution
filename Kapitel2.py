@@ -276,3 +276,14 @@ print(right.lowest_common_hypernyms(minke))
 print(right.lowest_common_hypernyms(orca))
 print(right.lowest_common_hypernyms(tortoise))
 print(right.lowest_common_hypernyms(novel))
+
+print(wn.synset('baleen_whale.n.01').min_depth())
+print(wn.synset('whale.n.02').min_depth())
+print(wn.synset('vertebrate.n.01').min_depth())
+print(wn.synset('entity.n.01').min_depth())
+
+print(right.path_similarity(minke))
+print(right.path_similarity(orca))
+print(right.path_similarity(tortoise))
+print(right.path_similarity(novel))
+
