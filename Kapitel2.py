@@ -252,6 +252,7 @@ print(wn.lemma('car.n.01.automobile').name()) #and get the "name" of a lemma.
 print(wn.lemmas('car')) #we can access all the lemmas involving the word car
 
 # Aufgabe 5.2 The WorldNet Hierarchy
+##################################### LETZTER STAND #########################################
 
 print("############# Aufgabe 5.2")
 print(motorcar = wn.synset('car.n.01'))
