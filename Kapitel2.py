@@ -263,3 +263,16 @@ print(sorted(lemma.name() for synset in types_of_motorcar for lemma in synset.le
 
 print("############# Aufgabe 5.3")
 print(wn.synset('tree.n.01').part_meronyms())
+
+# Aufgabe 5.4 Semantic Similarity
+
+print("############# Aufgabe 5.4")
+right = wn.synset('right_whale.n.01')
+orca = wn.synset('orca.n.01')
+minke = wn.synset('minke_whale.n.01')
+tortoise = wn.synset('tortoise.n.01')
+novel = wn.synset('novel.n.01')
+print(right.lowest_common_hypernyms(minke))
+print(right.lowest_common_hypernyms(orca))
+print(right.lowest_common_hypernyms(tortoise))
+print(right.lowest_common_hypernyms(novel))
