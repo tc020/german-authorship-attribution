@@ -253,6 +253,9 @@ print(wn.lemmas('car')) #we can access all the lemmas involving the word car
 
 # Aufgabe 5.2 The WorldNet Hierarchy
 
-
+motorcar = wn.synset('car.n.01')
+types_of_motorcar = motorcar.hyponyms()
+types_of_motorcar[0]
+sorted(lemma.name() for synset in types_of_motorcar for lemma in synset.lemmas())
 
 # Aufgabe 5.3 More Lexical Relations
