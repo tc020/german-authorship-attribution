@@ -17,6 +17,7 @@ print("WORDS():",emma_words)
 emma = nltk.Text(emma_words) # Wichtig!!!! Text muss erst als Corpus geladen und dann in Text umgewandelt werden, damit weitergearbeitet werden kann wie zB Konkordanz
 
 print(len(emma))
+print("Geladen:",emma)
 
 print(emma.concordance("surprize"))
 
