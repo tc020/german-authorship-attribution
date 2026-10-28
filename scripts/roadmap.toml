@@ -1,0 +1,175 @@
+# Labels, milestones and issues for the GitHub repository.
+# Create them with:  python scripts/create_roadmap.py   (see the docstring there)
+
+# ----------------------------------------------------------------- labels
+[[label]]
+name = "bug"
+color = "d73a4a"
+description = "Something in the code or the results is wrong"
+
+[[label]]
+name = "cleanup"
+color = "fbca04"
+description = "Tidying up files, notebooks and structure"
+
+[[label]]
+name = "enhancement"
+color = "a2eeef"
+description = "New analysis or model"
+
+[[label]]
+name = "documentation"
+color = "0075ca"
+description = "README, report, releases"
+
+# ----------------------------------------------------------------- milestones
+[[milestone]]
+title = "v1.0 - Clean, correct and public"
+description = "Clean up the repository, fix formula and evaluation bugs, publish. 2-3 days."
+
+[[milestone]]
+title = "v1.1 - Statistics"
+description = "Notebooks 06 and 07: uncertainty, model comparison, exploratory analysis, hypothesis tests. 1-2 days."
+
+[[milestone]]
+title = "v2.0 - Text models with scikit-learn and PyTorch"
+description = "Text chunks, TF-IDF pipeline with nested cross-validation, PyTorch classifier. 2-4 days."
+
+# ----------------------------------------------------------------- v1.0
+[[issue]]
+title = "Preserve the original study and remove the virtual environment"
+milestone = "v1.0 - Clean, correct and public"
+labels = ["cleanup"]
+body = '''
+- [ ] Tag the commit that matches the report (August 2025): find it with `git log --until=2025-08-31 -1 --oneline`, then `git tag -a study-2025 <commit> -m "State of the project report"` and `git push origin study-2025`
+- [ ] `git rm -r --cached nlp-lernen` (the folder is a virtual environment), add the new `.gitignore`, commit
+- [ ] Create a fresh environment as `.venv` from `requirements.txt`
+- [ ] Optional: remove the folder from the history with `git filter-repo --invert-paths --path nlp-lernen/` (back up first, then force-push branches and tags)
+- [ ] The language bar shows only Python and Jupyter Notebook
+'''
+
+[[issue]]
+title = "Restructure the repository and clean the notebooks"
+milestone = "v1.0 - Clean, correct and public"
+labels = ["cleanup"]
+body = '''
+- [ ] `korpus/` → `data/corpus/`, `projekt-gutenberg-texte/` → `data/raw/`, images → `figures/` (without `*_old.png`)
+- [ ] Notebooks → `notebooks/01_feature_exploration.ipynb` … `05_ensemble.ipynb`; delete `prototype-ensemble-backup.ipynb`
+- [ ] `Kapitel1.py`, `Kapitel2.py`, `spielwiese.ipynb`, `Cheatsheet.txt`, `Vokabular.txt`, `diabetes.png` → `learning/`; fix `print(motorcar = ...)` in `Kapitel2.py`
+- [ ] Remove the Iris cells from the SVM notebook, unused imports and the oversized heatmaps
+- [ ] "Restart & Run All" for every notebook: no tracebacks, no local paths in the output
+'''
+
+[[issue]]
+title = "Remove duplicate texts and check the corpus"
+milestone = "v1.0 - Clean, correct and public"
+labels = ["bug"]
+body = '''
+`kafka-das_urteil.txt` / `kafka-urteil.txt` and `kafka-die_verwandlung.txt` / `kafka-verwandlung.txt` are most likely the same texts twice, which leaks between training and test folds.
+
+- [ ] Compare both pairs and delete one file of each
+- [ ] Rename `kafka_der-heizer-ein-fragment.txt` → `kafka-der_heizer_ein_fragment.txt` (the author is read from the part before the first `-`)
+- [ ] Search all texts for leftover Project Gutenberg headers and footers
+- [ ] Add `data/README.md` with the source of every text
+'''
+
+[[issue]]
+title = "Fix the feature formulas and the evaluation code"
+milestone = "v1.0 - Clean, correct and public"
+labels = ["bug"]
+body = '''
+- [ ] Flesch: `180 - ASL - 58.5 * ASW` in every notebook (check: ASL 10, ASW 1.5 → 82.25)
+- [ ] Wiener Sachtextformel: MS counted per word (three or more syllables), IW with `len(word) > 6`, no global `syll1`
+- [ ] Load files with `sorted(Path(...).glob("*.txt"))`, author from the file name, `encoding="utf-8-sig"`, tokenizers with `language="german"`
+- [ ] `random_state` everywhere; the CV cells in the ensemble notebook use the right model; no variable named `confusion_matrix`
+- [ ] SVM: hyperparameters via cross-validation, no `gamma` for the linear kernel, plot axes and colours fixed
+- [ ] Optional: feature functions in `src/features.py` with a few pytest tests
+'''
+
+[[issue]]
+title = "README, license and release v1.0"
+milestone = "v1.0 - Clean, correct and public"
+labels = ["documentation"]
+body = '''
+- [ ] Add `README.md`, `requirements.txt` and an MIT `LICENSE`
+- [ ] Export `data/features.csv`, run `python scripts/evaluate.py`, update numbers and figures in the README
+- [ ] About: description and topics; rename the repository to `german-authorship-attribution`
+- [ ] Add the project report as PDF to `docs/` (with errata)
+- [ ] Check the commit e-mails (`git shortlog -sne --all`), tag `v1.0`, `gh release create v1.0 --generate-notes`
+- [ ] Make the repository public and pin it on your profile
+'''
+
+# ----------------------------------------------------------------- v1.1
+[[issue]]
+title = "Notebook 06: uncertainty and model comparison"
+milestone = "v1.1 - Statistics"
+labels = ["enhancement"]
+body = '''
+- [ ] Confidence intervals for the reported accuracies (Clopper–Pearson, Wilson)
+- [ ] Exact McNemar test, Random Forest vs. SVM
+- [ ] Bootstrap intervals, including the paired difference between both models
+- [ ] Permutation importance on held-out folds vs. impurity importance
+- [ ] All check cells pass, interpretation cells written in your own words
+- [ ] README: new row in "What I learned" and a sentence under "Findings"
+'''
+
+[[issue]]
+title = "Notebook 07: exploratory analysis and hypothesis tests"
+milestone = "v1.1 - Statistics"
+labels = ["enhancement"]
+body = '''
+- [ ] Median and interquartile range per author, boxplots, Spearman correlation matrix
+- [ ] Multicollinearity with the variance inflation factor (`statsmodels`): FRE is computed from sentence length and syllables per word
+- [ ] Kruskal–Wallis test per feature, post-hoc Mann–Whitney U tests with Holm correction, effect sizes
+- [ ] Explain why non-parametric tests (5–10 texts per author)
+- [ ] README updated, tag and release v1.1
+'''
+
+# ----------------------------------------------------------------- v2.0
+[[issue]]
+title = "Split the texts into chunks with grouped cross-validation"
+milestone = "v2.0 - Text models with scikit-learn and PyTorch"
+labels = ["enhancement"]
+body = '''
+About 1 million words → roughly 970 chunks of 1,000 words instead of 36 texts.
+
+- [ ] Split each text into chunks of n words and keep the work as group id
+- [ ] `StratifiedGroupKFold` with the work as group, report macro-F1
+- [ ] Mask names with spaCy NER, so the model can't recognise "Wallenstein"
+- [ ] Statistics on chunks: aggregate per work or use a mixed-effects model (`statsmodels` `MixedLM`)
+'''
+
+[[issue]]
+title = "TF-IDF pipeline with nested cross-validation"
+milestone = "v2.0 - Text models with scikit-learn and PyTorch"
+labels = ["enhancement"]
+body = '''
+- [ ] `Pipeline` with `TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4))` and `LogisticRegression`
+- [ ] Tune with `GridSearchCV` in an inner loop, measure in an outer grouped loop
+- [ ] Compare with the 12 stylometric features on the same folds
+- [ ] Macro-F1 for chunks of 100 to 2,000 words: how short can a text be?
+'''
+
+[[issue]]
+title = "PyTorch classifier compared with the baseline"
+milestone = "v2.0 - Text models with scikit-learn and PyTorch"
+labels = ["enhancement"]
+body = '''
+- [ ] fastText-style model: `nn.EmbeddingBag` → `nn.Linear`
+- [ ] Own training loop: `DataLoader`, `CrossEntropyLoss`, `AdamW`, early stopping, fixed seeds, loss curves
+- [ ] Same grouped folds as the TF-IDF pipeline, McNemar test between both models
+- [ ] README with the honest result, tag and release v2.0
+'''
+
+# ----------------------------------------------------------------- later
+[[issue]]
+title = "Ideas for later"
+labels = ["enhancement"]
+body = '''
+- [ ] Fine-tune a German BERT model (`deepset/gbert-base`) on the chunks
+- [ ] PCA and clustering, compared with the authors via the Adjusted Rand Index
+- [ ] SQL analysis of `data/features.csv` with DuckDB
+- [ ] Function words and Burrows' Delta
+- [ ] Genre-balanced corpus: Schiller's prose and more Goethe dramas
+- [ ] Who wrote *Der Luftpirat*? Compare with texts by Oskar Hoffmann
+'''

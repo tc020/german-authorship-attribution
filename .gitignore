@@ -1,0 +1,21 @@
+# Virtual environments (the old one lived in nlp-lernen/)
+.venv/
+venv/
+/nlp-lernen/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Office lock files
+~$*
