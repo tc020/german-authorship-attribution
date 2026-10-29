@@ -2,12 +2,12 @@
 
 Can sentence length, punctuation and readability tell Goethe from Schiller? In this study project I taught myself the basics of NLP and machine learning, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
 
-![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ![NLTK](https://img.shields.io/badge/NLTK-154F5B)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
 
-*University project (Wissenschaftliches Praxisprojekt), 2024–2025 · [Project report (German, PDF)](docs/projektbericht.pdf)*
+*University project (Wissenschaftliches Praxisprojekt), 2024–2025 · The original study is preserved as the release [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025).*
 
 ## At a glance
 
@@ -28,7 +28,7 @@ Can sentence length, punctuation and readability tell Goethe from Schiller? In t
 | Evaluation | From a single train/test split to repeated stratified cross-validation, majority baseline, permutation test, confusion matrices, precision/recall/F1 | [`scripts/evaluate.py`](scripts/evaluate.py) |
 | Interpretability | Decision-tree visualisation, feature importances, 2-D decision boundaries | [`notebooks/`](notebooks/) |
 | Data | Corpus built from Project Gutenberg (UTF-8, header removal, de-duplication); pandas, matplotlib, seaborn | [`data/`](data/) |
-| Research practice | Feasibility study with a written report, literature research, ethics of stylometry (dual use) | [`docs/`](docs/) |
+| Research practice | Feasibility study with a written report, literature research, ethics of stylometry (dual use) | [Ethics](#ethics) |
 
 ## Results
 
@@ -61,12 +61,21 @@ Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with
 
 ### Original study vs. re-evaluation
 
-| | Original report (2025) | Re-evaluation |
+| | Original study (2025) | Re-evaluation |
 |---|---|---|
 | Corpus | 38 texts | 36 texts (two duplicate Kafka texts removed) |
 | Evaluation | one 80/20 split (8 test texts) + 10-fold CV without shuffling | repeated stratified 5-fold CV, baseline, permutation test |
 | Random Forest | 87.5% (split), 72.5% (CV) | 87% ± 11% |
 | Ensemble | 100% (8 of 8) | 86% ± 11% |
+
+## Versions
+
+| Version | What |
+|---|---|
+| [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025) | Original study project as submitted in September 2025 |
+| `v1.0` | Cleaned up, corrected and re-evaluated |
+
+To run the original study, download the source code from the `study-2025` release or check it out with `git switch --detach study-2025`. The release lists the exact package versions and the known issues of that version.
 
 ## Lessons learned
 
@@ -142,7 +151,6 @@ jupyter lab                            # notebooks
 ├── notebooks/             # feature exploration, one notebook per model, ensemble
 ├── scripts/evaluate.py    # cross-validation, baseline, permutation test, figures
 ├── figures/
-├── docs/                  # project report (German)
 ├── learning/              # how I got here: NLTK book exercises, playground, notes
 └── requirements.txt
 ```
@@ -158,7 +166,7 @@ jupyter lab                            # notebooks
 
 ## Ethics
 
-Stylometry is dual-use. The methods that attribute historical texts can also de-anonymise whistleblowers, activists or pseudonymous authors. Countermeasures (adversarial stylometry) exist and can be abused in turn, for example to imitate someone else's style. This project only uses public-domain literature. Chapter 1.2 of the report discusses this in more detail.
+Stylometry is dual-use. The methods that attribute historical texts can also de-anonymise whistleblowers, activists or pseudonymous authors. Countermeasures (adversarial stylometry) exist and can be abused in turn, for example to imitate someone else's style. This project only uses public-domain literature.
 
 ## Data and license
 
