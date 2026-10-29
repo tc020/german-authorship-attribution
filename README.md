@@ -7,7 +7,7 @@ Can sentence length, punctuation and readability tell Goethe from Schiller? In t
 ![NLTK](https://img.shields.io/badge/NLTK-154F5B)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
 
-*University project (Wissenschaftliches Praxisprojekt), 2024–2025 · The original study is preserved as the release [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025).*
+*University project, 2025· The original study is preserved as the release [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025).*
 
 ## At a glance
 
