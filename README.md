@@ -1,4 +1,4 @@
-# Who wrote this? Authorship attribution for German literature
+# Basic authorship attribution for German literature
 
 Can sentence length, punctuation and readability tell Goethe from Schiller? In this university project from 2025, I taught myself the basics of NLP, machine learning and author attribution, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
 
