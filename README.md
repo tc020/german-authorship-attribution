@@ -70,10 +70,7 @@ Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with
 
 | Version | What |
 |---|---|
-| [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025) | Original study project as submitted in September 2025 |
 | `v1.0` | Cleaned up, corrected and re-evaluated |
-
-To run the original study, download the source code from the `study-2025` release or check it out with `git switch --detach study-2025`. The release lists the exact package versions and the known issues of that version.
 
 ## Lessons learned
 
