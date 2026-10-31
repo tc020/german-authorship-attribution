@@ -1,11 +1,13 @@
-# Basic authorship attribution for German literature
+# Who wrote this? Authorship attribution for German literature
 
-Can sentence length, punctuation and readability tell Goethe from Schiller? In this university project from 2025, I taught myself the basics of NLP, machine learning and author attribution, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
+Can sentence length, punctuation and readability tell Goethe from Schiller? In this study project I taught myself the basics of NLP and machine learning, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
 
 ![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ![NLTK](https://img.shields.io/badge/NLTK-154F5B)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
+
+*University project (Wissenschaftliches Praxisprojekt), 2024–2025*
 
 ## At a glance
 
@@ -65,12 +67,6 @@ Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with
 | Evaluation | one 80/20 split (8 test texts) + 10-fold CV without shuffling | repeated stratified 5-fold CV, baseline, permutation test |
 | Random Forest | 87.5% (split), 72.5% (CV) | 87% ± 11% |
 | Ensemble | 100% (8 of 8) | 86% ± 11% |
-
-## Versions
-
-| Version | What |
-|---|---|
-| `v1.0` | Cleaned up, corrected and re-evaluated |
 
 ## Lessons learned
 
