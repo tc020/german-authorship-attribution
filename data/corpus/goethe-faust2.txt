@@ -1,17 +1,4 @@
-﻿  Faust:  Der Tragödie zweiter Teil
-
-  von Johann Wolfgang von Goethe
-
-  1.  Anmutige Gegend
-  2.  Hochgewölbtes enges gotisches Zimmer
-  3.  Vor dem Palaste des Menelas zu Sparta
-  4.  Hochgebirg
-  5.  Offene Gegend
-
-
-
-  
-    1.  Akt--Anmutige Gegend
+﻿    1.  Akt--Anmutige Gegend
 
   Faust auf blumigen Rasen gebettet, ermüdet, unruhig,
   schlafsuchend.

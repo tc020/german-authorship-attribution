@@ -1,12 +1,4 @@
-﻿
-
-This book content was graciously contributed by the Gutenberg
-Projekt-DE. That project is reachable at the web site
-http://gutenberg2000.de.
-
-Dieses Buch wurde uns freundlicherweise vom "Gutenberg Projekt-DE" zur
-Verfügung gestellt. Das Projekt ist unter der Internet-Adresse
-Vorrede.  Die Geschichte dieser Verschwörung habe ich vorzüglich aus
+﻿Vorrede.  Die Geschichte dieser Verschwörung habe ich vorzüglich aus
 des Cardinals von Retz Conjuration du Comte Jean Louis de Fiesque,
 der Histoire des Conjurations, Histoire de Gènes und Robertsons
 Geschichte Karls V.--dem dritten Theil--gezogen.  Freiheiten, welche
@@ -5242,8 +5234,3 @@ Zenturione.  Antwortet die Hölle oder das Tollhaus?
 Verrina.  Ertränkt, wenn das hübscher lautet--Ich geh' zum Andreas.
 
 (Alle bleiben in starren Gruppen stehn.  Der Vorhang fällt.)
-
-Ende dieses Projekt Gutenberg Etextes "Die Verschwörung des Fiesco zu
-Genua", von Friedrich Schiller.
-
-

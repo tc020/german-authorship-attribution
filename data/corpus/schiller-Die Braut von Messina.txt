@@ -1,13 +1,4 @@
-﻿
-
-This book content was graciously contributed by the Gutenberg Projekt-DE.
-That project is reachable at the web site http://gutenberg2000.de.
-
-Dieses Buch wurde uns freundlicherweise vom "Gutenberg Projekt-DE"
-zur Verfügung gestellt.  Das Projekt ist unter der Internet-Adresse
-http://gutenberg2000.de erreichbar.
-
-Erster Auftritt.
+﻿Erster Auftritt.
 
 
 Donna Isabella in tiefer Trauer, die Ältesten von Messina stehen um sie her.
@@ -190,17 +181,7 @@ auf derselben Seite, wo jeder eingetreten, in eine Reihe stellen.
 Den einen Halbchor bilden die ältern, den andern die jüngern Ritter;
 beide sind durch Farbe und Abzeichen verschieden. Wenn beide Chöre
 einander gegenüber stehen, schweigt der Marsch, und die beiden
-Chorführer reden. (2)
-
-------------------------------------------------------
-(2) Anmerkung. Der Verfasser hat bei Übersendung des Manuscripts an
-das Theater zu Wien einen Vorschlag beigefügt, wie die Reden des Chors
-unter einzelne Personen vertheilt werden könnten. Der erste Chor sollte
-nämlich aus Cajetan, Berengar, Manfred, Tristan und acht Rittern Don
-Manuels, der zweite aus Bohemund, Roger, Hippolit und neun Rittern
-Don Cesars bestehen. Was jede dieser Personen nach des Verfassers
-Plane zu sagen haben würde, ist bei dieser Ausgabe angedeutet worden.
-------------------------------------------------------
+Chorführer reden.
 
 Erster Chor. (Cajetan.)
   Dich begrüß' ich in Ehrfurcht,
@@ -369,15 +350,7 @@ Erster Chor. (Berengar.)
   Nicht auf der Erden
   Ist ihr Bild und ihr Gleichniß zu sehn.
 
-  Hoch auf des Lebens (3)
-
-------------------------------------------------------
-
-(3) Anmerkung. Nach der Absicht des Verf. sollte die Stelle: "Hoch
-auf des Lebens--ihrem Sohn" auf dem Theater wegbleiben.
-
-------------------------------------------------------
-
+  Hoch auf des Lebens
   Gipfel gestellt,
   Schließt sie blühend den Kreis des Schönen,
   Mit der Mutter und ihren Söhnen
@@ -4371,4 +4344,3 @@ Chor (Cajetan.) (nach einem tiefen Schweigen).
   Dies Eine fühl' ich und erkenn' es klar:
   Das Leben ist der Güter höchstes nicht,
   Der Übel größtes aber ist die Schuld.
-
