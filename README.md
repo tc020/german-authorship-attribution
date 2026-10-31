@@ -1,13 +1,11 @@
-# Who wrote this? Authorship attribution for German literature
+# Basic authorship attribution for German literature
 
-Can sentence length, punctuation and readability tell Goethe from Schiller? In this study project I taught myself the basics of NLP and machine learning, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
+Can sentence length, punctuation and readability tell Goethe from Schiller? In this university project from 2025, I taught myself the basics of NLP, machine learning and author attribution, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
 
 ![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ![NLTK](https://img.shields.io/badge/NLTK-154F5B)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
-
-*University project, 2025· The original study is preserved as the release [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025).*
 
 ## At a glance
 
@@ -72,10 +70,7 @@ Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with
 
 | Version | What |
 |---|---|
-| [`study-2025`](https://github.com/tc020/german-authorship-attribution/releases/tag/study-2025) | Original study project as submitted in September 2025 |
 | `v1.0` | Cleaned up, corrected and re-evaluated |
-
-To run the original study, download the source code from the `study-2025` release or check it out with `git switch --detach study-2025`. The release lists the exact package versions and the known issues of that version.
 
 ## Lessons learned
 
