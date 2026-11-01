@@ -127,6 +127,8 @@ source .venv/bin/activate              # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python -m nltk.downloader punkt_tab
 python -m spacy download de_core_news_sm   # only for the exploration notebook
+python -m nltk.downloader book             # only for the exercises in learning/
+python -m spacy download en_core_web_sm    # only for the exercises in learning/
 
 python scripts/evaluate.py             # results table and figures, about 2 minutes
 jupyter lab                            # notebooks
@@ -135,9 +137,9 @@ jupyter lab                            # notebooks
 ## Repository structure
 
 ```
-├── data/
-│   ├── corpus/            # 36 cleaned texts, one file per work
-│   ├── raw/               # original Project Gutenberg downloads
+├── data/                  # sources and cleaning: data/README.md
+│   ├── corpus/            # 36 cleaned texts
+│   ├── raw/               # texts before cleaning (original study)
 │   └── features.csv       # 36 × 12 feature table
 ├── notebooks/             # feature exploration, one notebook per model, ensemble
 ├── scripts/evaluate.py    # cross-validation, baseline, permutation test, figures
@@ -161,7 +163,7 @@ Stylometry is dual-use. The methods that attribute historical texts can also de-
 
 ## Data and license
 
-The texts are in the public domain and come from [Project Gutenberg](https://www.gutenberg.org). The Gutenberg headers and license text were removed before the analysis. The code is released under the [MIT License](LICENSE).
+The texts are in the public domain and come from [Project Gutenberg](https://www.gutenberg.org). The Gutenberg headers and license text were removed before the analysis; [data/README.md](data/README.md) lists the source, cleaning steps and word count of every text. The code is released under the [MIT License](LICENSE).
 
 ## Author
 

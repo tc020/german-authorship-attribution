@@ -1,14 +1,14 @@
-# Python 3.12
+# Python 3.12 or newer
 numpy>=1.26
 pandas>=2.2
 scipy>=1.11
-scikit-learn>=1.5
+scikit-learn>=1.7    # 1.7 or newer for multiclass_colors in the SVM plot
 matplotlib>=3.8
 seaborn>=0.13
 nltk>=3.9
 pyphen>=0.15
 jupyterlab>=4.0
 
-# only needed for the exploration notebooks (POS tagging, NER, English readability)
+# POS tagging and named entities (spaCy), English readability scores (textstat)
 spacy>=3.7
 textstat>=0.7
