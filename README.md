@@ -23,12 +23,12 @@ Repeated stratified 5-fold cross-validation (20 repeats) on 36 texts:
 |---|---|---|
 | Majority baseline | 28% ± 1% | 0.09 |
 | Decision Tree | 68% ± 16% | 0.66 |
-| **Random Forest** | **89% ± 10%** | **0.87** |
+| **Random Forest** | **87% ± 11%** | **0.85** |
 | Linear SVM | 81% ± 12% | 0.79 |
 | Linear SVM, 2 features (word + sentence length) | 56% ± 9% | 0.43 |
-| Voting ensemble (DT + RF + SVM) | 84% ± 12% | 0.83 |
+| Voting ensemble (DT + RF + SVM) | 83% ± 12% | 0.81 |
 
-Permutation test (Random Forest): 92% accuracy with the real labels vs. 22% with shuffled labels, p = 0.005.
+Permutation test (Random Forest): 89% accuracy with the real labels vs. 22% with shuffled labels, p = 0.005.
 
 <p align="center">
     <img src="figures/confusion_matrix_rf_loo.png" width="520" alt="Confusion matrix of the Random Forest in leave-one-out validation: 32 of 36 texts correct. Errors: Faust I predicted as Schiller, Wilhelm Meisters Lehrjahre as Kafka, Die Verwandlung and Ein Hungerkünstler as Goethe.">
