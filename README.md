@@ -1,13 +1,11 @@
 # Who wrote this? Authorship attribution for German literature
 
-Can sentence length, punctuation and readability tell Goethe from Schiller? In this study project I taught myself the basics of NLP and machine learning, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
+Can sentence length, punctuation and readability tell Goethe from Schiller? In this university project from 2025 I taught myself the basics of NLP and machine learning, from the first chapters of the NLTK book to cross-validated classifiers, and later re-evaluated my own results more rigorously.
 
 ![Python 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ![NLTK](https://img.shields.io/badge/NLTK-154F5B)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue)
-
-*University project (Wissenschaftliches Praxisprojekt), 2024–2025*
 
 ## At a glance
 
@@ -16,19 +14,6 @@ Can sentence length, punctuation and readability tell Goethe from Schiller? In t
 - **Models:** Decision Tree, Random Forest, linear SVM and a majority-vote ensemble (scikit-learn).
 - **Result:** the Random Forest reaches **89% accuracy** in repeated stratified cross-validation, against a 28% majority baseline (permutation test p = 0.005).
 - **Most interesting finding:** the models partly learned *genre* instead of *author*. All three classify Goethe's *Faust I* as Schiller.
-
-## What I learned
-
-| Area | What I did | Where |
-|---|---|---|
-| NLP fundamentals | NLTK book, chapters 1–2: tokenization, frequency distributions, concordances, collocations, n-grams, corpora (Gutenberg, Brown, Reuters), WordNet | [`learning/`](learning/) |
-| Feature engineering | 12 style features from raw text: word and sentence length, syllables per word (Pyphen), type-token ratio, six punctuation rates | [`notebooks/01_feature_exploration.ipynb`](notebooks/01_feature_exploration.ipynb) |
-| Computational linguistics | German readability indices (Flesch–Amstad, Wiener Sachtextformel) implemented by hand; explored POS tagging and NER with spaCy, word and character n-grams, function words | [`notebooks/01_feature_exploration.ipynb`](notebooks/01_feature_exploration.ipynb), [`learning/`](learning/) |
-| Machine learning | Decision Tree, Random Forest, linear SVM, hard-voting ensemble; feature scaling and pipelines | [`notebooks/`](notebooks/) |
-| Evaluation | From a single train/test split to repeated stratified cross-validation, majority baseline, permutation test, confusion matrices, precision/recall/F1 | [`scripts/evaluate.py`](scripts/evaluate.py) |
-| Interpretability | Decision-tree visualisation, feature importances, 2-D decision boundaries | [`notebooks/`](notebooks/) |
-| Data | Corpus built from Project Gutenberg (UTF-8, header removal, de-duplication); pandas, matplotlib, seaborn | [`data/`](data/) |
-| Research practice | Feasibility study with a written report, literature research, ethics of stylometry (dual use) | [Ethics](#ethics) |
 
 ## Results
 
@@ -58,24 +43,6 @@ Permutation test (Random Forest): 92% accuracy with the real labels vs. 22% with
 **2. Goethe vs. Kafka is the hard case.** Three of the Random Forest's four leave-one-out errors are Goethe ↔ Kafka confusions. Besides *Faust I*, two texts are misclassified by all three models: *Wilhelm Meisters Lehrjahre* as Kafka and *Ein Hungerkünstler* as Goethe. In their prose, both authors average about 22 words per sentence, against about 15 for Achleitner and the *Luftpirat* series, and both use more commas. These surface features cannot tell them apart.
 
 **3. The ensemble does not help.** On a single 8-text test split, the majority vote fixed every individual model's error (8 of 8 correct). Under repeated cross-validation it reaches 84%, slightly below the Random Forest alone (89%), probably because the two weaker models can outvote it.
-
-### Original study vs. re-evaluation
-
-| | Original study (2025) | Re-evaluation |
-|---|---|---|
-| Corpus | 38 texts | 36 texts (two duplicate Kafka texts removed) |
-| Evaluation | one 80/20 split (8 test texts) + 10-fold CV without shuffling | repeated stratified 5-fold CV, baseline, permutation test |
-| Random Forest | 87.5% (split), 72.5% (CV) | 89% ± 10% |
-| Ensemble | 100% (8 of 8) | 84% ± 12% |
-
-## Lessons learned
-
-- **Eight test texts are not an evaluation.** One text is worth 12.5 percentage points. The 100% ensemble result came from one lucky split.
-- **How you split matters.** My first 10-fold CV ran on a file list sorted by author, without shuffling: one fold held out four of the five Achleitner texts. Stratified, shuffled and repeated folds fixed that.
-- **Tune on validation data, never on training accuracy.** I first chose the SVM's hyperparameters by training accuracy. `gamma=1000` reached 100%, which is textbook overfitting.
-- **Check the data before splitting.** Two Kafka stories were in the corpus twice, under different file names, which leaks information between training and test folds.
-- **Look for confounds.** Genre (drama vs. prose) and text length (the type-token ratio drops as texts get longer) can masquerade as style.
-- **Test hand-written formulas.** A `-` instead of a `×` in my Flesch formula went unnoticed for a while because the models still worked. A test against a known value would have caught it.
 
 ## How it works
 
