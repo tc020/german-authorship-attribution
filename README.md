@@ -14,7 +14,7 @@ Can sentence length, punctuation and readability tell Goethe from Schiller? In t
 - **Task:** assign 36 public-domain texts to five authors (Goethe, Schiller, Kafka, Arthur Achleitner and an anonymous pulp series) using only *how* they are written, not *what* they are about.
 - **Features:** 12 stylometric measures per text, including two German readability indices I implemented from scratch.
 - **Models:** Decision Tree, Random Forest, linear SVM and a majority-vote ensemble (scikit-learn).
-- **Result:** the Random Forest reaches **87% accuracy** in repeated stratified cross-validation, against a 28% majority baseline (permutation test p = 0.005).
+- **Result:** the Random Forest reaches **89% accuracy** in repeated stratified cross-validation, against a 28% majority baseline (permutation test p = 0.005).
 - **Most interesting finding:** the models partly learned *genre* instead of *author*. All three classify Goethe's *Faust I* as Schiller.
 
 ## What I learned
@@ -37,27 +37,27 @@ Repeated stratified 5-fold cross-validation (20 repeats) on 36 texts:
 | Model | Accuracy (mean ± SD) | Macro-F1 |
 |---|---|---|
 | Majority baseline | 28% ± 1% | 0.09 |
-| Decision Tree | 70% ± 16% | 0.66 |
-| **Random Forest** | **87% ± 11%** | **0.84** |
-| Linear SVM | 83% ± 11% | 0.82 |
-| Linear SVM, 2 features (word + sentence length) | 70% ± 11% | 0.59 |
-| Voting ensemble (DT + RF + SVM) | 86% ± 11% | 0.85 |
+| Decision Tree | 68% ± 16% | 0.66 |
+| **Random Forest** | **89% ± 10%** | **0.87** |
+| Linear SVM | 81% ± 12% | 0.79 |
+| Linear SVM, 2 features (word + sentence length) | 56% ± 9% | 0.43 |
+| Voting ensemble (DT + RF + SVM) | 84% ± 12% | 0.83 |
 
-Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with shuffled labels, p = 0.005.
+Permutation test (Random Forest): 92% accuracy with the real labels vs. 22% with shuffled labels, p = 0.005.
 
 <p align="center">
-  <img src="figures/confusion_matrix_rf_loo.png" width="520" alt="Confusion matrix of the Random Forest in leave-one-out validation: 31 of 36 texts correct. Errors: two Goethe texts predicted as Kafka, two Kafka texts as Goethe, Faust I as Schiller.">
+    <img src="figures/confusion_matrix_rf_loo.png" width="520" alt="Confusion matrix of the Random Forest in leave-one-out validation: 32 of 36 texts correct. Errors: Faust I predicted as Schiller, Wilhelm Meisters Lehrjahre as Kafka, Die Verwandlung and Ein Hungerkünstler as Goethe.">
 </p>
 
 ### Findings
 
-**1. The models partly learn genre, not author.** Every Schiller text in this corpus is a drama, and dramas consist of short dialogue lines. All 12 dramas average fewer than 14 words per sentence, all 24 prose texts more. As a result, the Decision Tree, the Random Forest and the SVM all classify Goethe's *Faust I* as Schiller in leave-one-out validation.
+**1. The models partly learn genre, not author.** Every Schiller text in this corpus is a drama, and dramas consist of short dialogue lines. All ten Schiller plays and *Faust I* average fewer than 10 words per sentence, while no prose text averages fewer than 12.7. As a result, the Decision Tree, the Random Forest and the SVM all classify Goethe's *Faust I* as Schiller in leave-one-out validation. *Faust II*, at 13.6 words per sentence, falls among the shortest prose texts, and none of the models takes it for Schiller.
 
-![Average sentence length per text by author: every drama is below 14 words per sentence, every prose text above](figures/sentence_length_by_genre.png)
+![Average sentence length per text by author: the Schiller plays and Faust I are below 10 words per sentence, all prose texts above 12; Faust II lies among the shortest prose texts](figures/sentence_length_by_genre.png)
 
-**2. Goethe vs. Kafka is the hard case.** Four of the Random Forest's five leave-one-out errors are Goethe ↔ Kafka confusions. Both write long, comma-heavy sentences, which these surface features cannot tell apart.
+**2. Goethe vs. Kafka is the hard case.** Three of the Random Forest's four leave-one-out errors are Goethe ↔ Kafka confusions. Besides *Faust I*, two texts are misclassified by all three models: *Wilhelm Meisters Lehrjahre* as Kafka and *Ein Hungerkünstler* as Goethe. In their prose, both authors average about 22 words per sentence, against about 15 for Achleitner and the *Luftpirat* series, and both use more commas. These surface features cannot tell them apart.
 
-**3. The ensemble adds little.** On a single 8-text test split, the majority vote fixed every individual model's error (8 of 8 correct). Under repeated cross-validation it performs on par with the Random Forest alone.
+**3. The ensemble does not help.** On a single 8-text test split, the majority vote fixed every individual model's error (8 of 8 correct). Under repeated cross-validation it reaches 84%, slightly below the Random Forest alone (89%), probably because the two weaker models can outvote it.
 
 ### Original study vs. re-evaluation
 
@@ -65,8 +65,8 @@ Permutation test (Random Forest): 84% accuracy with the real labels vs. 22% with
 |---|---|---|
 | Corpus | 38 texts | 36 texts (two duplicate Kafka texts removed) |
 | Evaluation | one 80/20 split (8 test texts) + 10-fold CV without shuffling | repeated stratified 5-fold CV, baseline, permutation test |
-| Random Forest | 87.5% (split), 72.5% (CV) | 87% ± 11% |
-| Ensemble | 100% (8 of 8) | 86% ± 11% |
+| Random Forest | 87.5% (split), 72.5% (CV) | 89% ± 10% |
+| Ensemble | 100% (8 of 8) | 84% ± 12% |
 
 ## Lessons learned
 
@@ -139,7 +139,7 @@ jupyter lab                            # notebooks
 ```
 ├── data/                  # sources and cleaning: data/README.md
 │   ├── corpus/            # 36 cleaned texts
-│   ├── raw/               # texts before cleaning (original study)
+│   ├── raw/               # texts before cleaning
 │   └── features.csv       # 36 × 12 feature table
 ├── notebooks/             # feature exploration, one notebook per model, ensemble
 ├── scripts/evaluate.py    # cross-validation, baseline, permutation test, figures
