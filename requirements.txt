@@ -12,3 +12,6 @@ jupyterlab>=4.0
 # POS tagging and named entities (spaCy), English readability scores (textstat)
 spacy>=3.7
 textstat>=0.7
+
+# tests: python -m pytest
+pytest>=8
