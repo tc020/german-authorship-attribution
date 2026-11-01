@@ -1,6 +1,6 @@
 # Data
 
-36 German literary texts by five authors, about 981,000 words in total. All of them are in the public domain and come from [Project Gutenberg](https://www.gutenberg.org).
+36 German literary texts by five authors, 983,624 words in total. All of them are in the public domain and come from [Project Gutenberg](https://www.gutenberg.org).
 
 | Path | Content |
 |---|---|
@@ -12,78 +12,85 @@ File names follow the pattern `author-title.txt`. The notebooks read the author 
 
 ## Texts
 
-Word counts are approximate and refer to the cleaned texts.
+The word counts refer to the cleaned texts and were counted with the NLTK tokenizer (NLTK 3.10). Every token that contains at least one letter counts as a word, so punctuation marks and numbers are left out:
+
+```python
+from nltk.tokenize import word_tokenize
+
+tokens = word_tokenize(text, language="german")
+n_words = sum(any(char.isalpha() for char in token) for token in tokens)
+```
 
 ### Arthur Achleitner
 
-5 texts, about 264,400 words
+5 texts, 264,658 words
 
 | File | Work | Project Gutenberg | Words |
 |---|---|---|--:|
-| `achleitner-Aus_Kroatien.txt` | *Aus Kroatien: Skizzen und Erzählungen* | [#15734](https://www.gutenberg.org/ebooks/15734) | 33,100 |
-| `achleitner-Bergrichters_Erdenwallen.txt` | *Bergrichters Erdenwallen* | [#14225](https://www.gutenberg.org/ebooks/14225) | 46,000 |
-| `achleitner-Celsissimus.txt` | *Celsissimus: Salzburger Roman* | [#13953](https://www.gutenberg.org/ebooks/13953) | 67,900 |
-| `achleitner-Im_gruenen_Tann.txt` | *Im grünen Tann* | [#14105](https://www.gutenberg.org/ebooks/14105) | 54,000 |
-| `achleitner-Unter_den_Hohen_Tauern.txt` | *Unter den Hohen Tauern: Ein Roman aus der Steiermark* | [#63802](https://www.gutenberg.org/ebooks/63802) | 63,300 |
+| `achleitner-Aus_Kroatien.txt` | *Aus Kroatien: Skizzen und Erzählungen* | [#15734](https://www.gutenberg.org/ebooks/15734) | 33,137 |
+| `achleitner-Bergrichters_Erdenwallen.txt` | *Bergrichters Erdenwallen* | [#14225](https://www.gutenberg.org/ebooks/14225) | 46,033 |
+| `achleitner-Celsissimus.txt` | *Celsissimus: Salzburger Roman* | [#13953](https://www.gutenberg.org/ebooks/13953) | 67,975 |
+| `achleitner-Im_gruenen_Tann.txt` | *Im grünen Tann* | [#14105](https://www.gutenberg.org/ebooks/14105) | 54,174 |
+| `achleitner-Unter_den_Hohen_Tauern.txt` | *Unter den Hohen Tauern: Ein Roman aus der Steiermark* | [#63802](https://www.gutenberg.org/ebooks/63802) | 63,339 |
 
 ### Anonymous: *Der Luftpirat und sein lenkbares Luftschiff*
 
-6 texts, about 74,000 words
+6 texts, 73,984 words
 
 | File | Work | Project Gutenberg | Words |
 |---|---|---|--:|
-| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 01.txt` | Issue 1 | [#56064](https://www.gutenberg.org/ebooks/56064) | 12,800 |
-| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 40.txt` | Issue 40 | [#56065](https://www.gutenberg.org/ebooks/56065) | 13,000 |
-| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 42.txt` | Issue 42 | [#56066](https://www.gutenberg.org/ebooks/56066) | 13,100 |
-| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 56.txt` | Issue 56 | [#56067](https://www.gutenberg.org/ebooks/56067) | 11,800 |
-| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 63.txt` | Issue 63 | [#56068](https://www.gutenberg.org/ebooks/56068) | 11,500 |
+| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 01.txt` | Issue 1 | [#56064](https://www.gutenberg.org/ebooks/56064) | 12,827 |
+| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 40.txt` | Issue 40 | [#56065](https://www.gutenberg.org/ebooks/56065) | 13,048 |
+| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 42.txt` | Issue 42 | [#56066](https://www.gutenberg.org/ebooks/56066) | 13,087 |
+| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 56.txt` | Issue 56 | [#56067](https://www.gutenberg.org/ebooks/56067) | 11,758 |
+| `anonymous-Der Luftpirat und sein lenkbares Luftschiff 63.txt` | Issue 63 | [#56068](https://www.gutenberg.org/ebooks/56068) | 11,464 |
 | `anonymous-Der Luftpirat und sein lenkbares Luftschiff 66.txt` | Issue 66 | [#56069](https://www.gutenberg.org/ebooks/56069) | 11,800 |
 
 ### Johann Wolfgang von Goethe
 
-7 texts, about 260,900 words
+7 texts, 261,779 words
 
 | File | Work | Project Gutenberg | Words |
 |---|---|---|--:|
-| `goethe-die_leiden_des_jungen_werther_band1.txt` | *Die Leiden des jungen Werther*, Band 1 | [#2407](https://www.gutenberg.org/ebooks/2407) | 17,700 |
-| `goethe-die_leiden_des_jungen_werther_band2.txt` | *Die Leiden des jungen Werther*, Band 2 | [#2408](https://www.gutenberg.org/ebooks/2408) | 21,500 |
-| `goethe-faust1.txt` | *Faust: Der Tragödie erster Teil* | [#2229](https://www.gutenberg.org/ebooks/2229) | 30,600 |
-| `goethe-faust2.txt` | *Faust: Der Tragödie zweiter Teil* | [#2230](https://www.gutenberg.org/ebooks/2230) | 45,300 |
-| `goethe-wahlverwandtschaften.txt` | *Die Wahlverwandtschaften* | [#2403](https://www.gutenberg.org/ebooks/2403) | 79,100 |
-| `goethe-wilhelm_meisters_lehrjahre_band1.txt` | *Wilhelm Meisters Lehrjahre*, Band 1 | [#2335](https://www.gutenberg.org/ebooks/2335) | 21,300 |
-| `goethe-wilhelm_meisters_wanderjahre_band1.txt` | *Wilhelm Meisters Wanderjahre*, Band 1 | [#2409](https://www.gutenberg.org/ebooks/2409) | 45,400 |
+| `goethe-die_leiden_des_jungen_werther_band1.txt` | *Die Leiden des jungen Werther*, Band 1 | [#2407](https://www.gutenberg.org/ebooks/2407) | 17,751 |
+| `goethe-die_leiden_des_jungen_werther_band2.txt` | *Die Leiden des jungen Werther*, Band 2 | [#2408](https://www.gutenberg.org/ebooks/2408) | 21,525 |
+| `goethe-faust1.txt` | *Faust: Der Tragödie erster Teil* | [#2229](https://www.gutenberg.org/ebooks/2229) | 30,887 |
+| `goethe-faust2.txt` | *Faust: Der Tragödie zweiter Teil* | [#2230](https://www.gutenberg.org/ebooks/2230) | 45,715 |
+| `goethe-wahlverwandtschaften.txt` | *Die Wahlverwandtschaften* | [#2403](https://www.gutenberg.org/ebooks/2403) | 79,119 |
+| `goethe-wilhelm_meisters_lehrjahre_band1.txt` | *Wilhelm Meisters Lehrjahre*, Band 1 | [#2335](https://www.gutenberg.org/ebooks/2335) | 21,308 |
+| `goethe-wilhelm_meisters_wanderjahre_band1.txt` | *Wilhelm Meisters Wanderjahre*, Band 1 | [#2409](https://www.gutenberg.org/ebooks/2409) | 45,474 |
 
 ### Franz Kafka
 
-8 texts, about 137,700 words
+8 texts, 137,631 words
 
 | File | Work | Project Gutenberg | Words |
 |---|---|---|--:|
-| `kafka-betrachtung.txt` | *Betrachtung* | [#23532](https://www.gutenberg.org/ebooks/23532) | 5,900 |
-| `kafka-das_urteil.txt` | *Das Urteil: Eine Geschichte* | [#21593](https://www.gutenberg.org/ebooks/21593) | 4,000 |
-| `kafka-der-heizer-ein-fragment.txt` | *Der Heizer: Ein Fragment* | [#16304](https://www.gutenberg.org/ebooks/16304) | 10,200 |
-| `kafka-der_prozess.txt` | *Der Prozess: Roman* | [#69327](https://www.gutenberg.org/ebooks/69327) | 71,700 |
-| `kafka-die_verwandlung.txt` | *Die Verwandlung* | [#22367](https://www.gutenberg.org/ebooks/22367) | 19,200 |
-| `kafka-hungerkünstler.txt` | *Ein Hungerkünstler* | [#30655](https://www.gutenberg.org/ebooks/30655) | 3,400 |
-| `kafka-in_der_strafkolonie.txt` | *In der Strafkolonie* | [#25791](https://www.gutenberg.org/ebooks/25791) | 10,300 |
-| `kafka-landarzt.txt` | *Ein Landarzt: Kleine Erzählungen* | [#21989](https://www.gutenberg.org/ebooks/21989) | 13,100 |
+| `kafka-betrachtung.txt` | *Betrachtung* | [#23532](https://www.gutenberg.org/ebooks/23532) | 5,863 |
+| `kafka-das_urteil.txt` | *Das Urteil: Eine Geschichte* | [#21593](https://www.gutenberg.org/ebooks/21593) | 3,995 |
+| `kafka-der-heizer-ein-fragment.txt` | *Der Heizer: Ein Fragment* | [#16304](https://www.gutenberg.org/ebooks/16304) | 10,168 |
+| `kafka-der_prozess.txt` | *Der Prozess: Roman* | [#69327](https://www.gutenberg.org/ebooks/69327) | 71,619 |
+| `kafka-die_verwandlung.txt` | *Die Verwandlung* | [#22367](https://www.gutenberg.org/ebooks/22367) | 19,151 |
+| `kafka-hungerkünstler.txt` | *Ein Hungerkünstler* | [#30655](https://www.gutenberg.org/ebooks/30655) | 3,422 |
+| `kafka-in_der_strafkolonie.txt` | *In der Strafkolonie* | [#25791](https://www.gutenberg.org/ebooks/25791) | 10,275 |
+| `kafka-landarzt.txt` | *Ein Landarzt: Kleine Erzählungen* | [#21989](https://www.gutenberg.org/ebooks/21989) | 13,138 |
 
 ### Friedrich Schiller
 
-10 texts, about 244,200 words
+10 texts, 245,572 words
 
 | File | Work | Project Gutenberg | Words |
 |---|---|---|--:|
-| `schiller-Der Neffe als Onkel.txt` | *Der Neffe als Onkel* | [#6503](https://www.gutenberg.org/ebooks/6503) | 12,700 |
-| `schiller-Die Braut von Messina.txt` | *Die Braut von Messina* | [#6496](https://www.gutenberg.org/ebooks/6496) | 20,900 |
-| `schiller-Die Jungfrau von Orleans.txt` | *Die Jungfrau von Orleans* | [#6383](https://www.gutenberg.org/ebooks/6383) | 25,700 |
-| `schiller-Die Piccolomini.txt` | *Die Piccolomini* | [#6525](https://www.gutenberg.org/ebooks/6525) | 21,200 |
-| `schiller-Die Verschwörung des Fiesco zu Genua.txt` | *Die Verschwörung des Fiesco zu Genua* | [#6499](https://www.gutenberg.org/ebooks/6499) | 30,200 |
-| `schiller-Kabale und Liebe.txt` | *Kabale und Liebe* | [#6498](https://www.gutenberg.org/ebooks/6498) | 31,000 |
-| `schiller-Turandot Prinzessin von China.txt` | *Turandot, Prinzessin von China* | [#6505](https://www.gutenberg.org/ebooks/6505) | 21,300 |
-| `schiller-Wallensteins Lager.txt` | *Wallensteins Lager* | [#6518](https://www.gutenberg.org/ebooks/6518) | 8,900 |
-| `schiller-Wallensteins Tod.txt` | *Wallensteins Tod* | [#6549](https://www.gutenberg.org/ebooks/6549) | 31,500 |
-| `schiller-raeuber.txt` | *Die Räuber: Ein Schauspiel* | [#47804](https://www.gutenberg.org/ebooks/47804) | 40,900 |
+| `schiller-Der Neffe als Onkel.txt` | *Der Neffe als Onkel* | [#6503](https://www.gutenberg.org/ebooks/6503) | 12,729 |
+| `schiller-Die Braut von Messina.txt` | *Die Braut von Messina* | [#6496](https://www.gutenberg.org/ebooks/6496) | 20,972 |
+| `schiller-Die Jungfrau von Orleans.txt` | *Die Jungfrau von Orleans* | [#6383](https://www.gutenberg.org/ebooks/6383) | 25,713 |
+| `schiller-Die Piccolomini.txt` | *Die Piccolomini* | [#6525](https://www.gutenberg.org/ebooks/6525) | 21,437 |
+| `schiller-Die Verschwörung des Fiesco zu Genua.txt` | *Die Verschwörung des Fiesco zu Genua* | [#6499](https://www.gutenberg.org/ebooks/6499) | 30,257 |
+| `schiller-Kabale und Liebe.txt` | *Kabale und Liebe* | [#6498](https://www.gutenberg.org/ebooks/6498) | 31,052 |
+| `schiller-Turandot Prinzessin von China.txt` | *Turandot, Prinzessin von China* | [#6505](https://www.gutenberg.org/ebooks/6505) | 21,423 |
+| `schiller-Wallensteins Lager.txt` | *Wallensteins Lager* | [#6518](https://www.gutenberg.org/ebooks/6518) | 9,010 |
+| `schiller-Wallensteins Tod.txt` | *Wallensteins Tod* | [#6549](https://www.gutenberg.org/ebooks/6549) | 31,813 |
+| `schiller-raeuber.txt` | *Die Räuber: Ein Schauspiel* | [#47804](https://www.gutenberg.org/ebooks/47804) | 41,166 |
 
 ### Things to know about the corpus
 
@@ -91,7 +98,7 @@ Word counts are approximate and refer to the cleaned texts.
 - **Translations and adaptations.** *Turandot, Prinzessin von China* is Schiller's adaptation of a play by Carlo Gozzi, and *Der Neffe als Onkel* is his translation of *Encore des Ménechmes* by Louis-Benoît Picard. Part of their style comes from the original authors.
 - **Recurring names.** The two *Werther* files are the two books of one novel, *Faust I* and *II* belong together, the three Wallenstein plays form a trilogy and the six *Luftpirat* issues are one series. Names such as Lotte, Mephistopheles, Wallenstein and Kapitän Mors recur across these files, so a model that learns from the words themselves can match them by content rather than by style.
 - **Parts of longer works.** Only Band 1 of *Wilhelm Meisters Lehrjahre* and of *Wilhelm Meisters Wanderjahre* is included. *Der Heizer* is the first chapter of Kafka's unfinished novel *Der Verschollene*. The file of *Die Jungfrau von Orleans* begins with the first act; the prologue is missing.
-- **Length.** The texts range from about 3,400 words (*Ein Hungerkünstler*) to 79,100 words (*Die Wahlverwandtschaften*). Length-dependent measures such as the type-token ratio fall as texts get longer.
+- **Length.** The texts range from 3,422 words (*Ein Hungerkünstler*) to 79,119 words (*Die Wahlverwandtschaften*). Length-dependent measures such as the type-token ratio fall as texts get longer.
 
 ## Cleaning
 
